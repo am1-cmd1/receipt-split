@@ -32,6 +32,22 @@ body {
   font-family: system-ui, -apple-system, sans-serif;
 }
 
+/* Ensure full height for mobile PWA */
+html, body, #__next {
+  height: 100%;
+  overscroll-behavior-y: none; /* Prevent rubber-banding on iOS */
+}
+
+/* Safe area insets for notched devices */
+@supports (padding-top: env(safe-area-inset-top)) {
+  body {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+}
+
 * {
   box-sizing: border-box;
 }
